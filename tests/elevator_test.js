@@ -1,4 +1,8 @@
-const Elevator = require('../elevator');
+require('babel-core/register')({
+  ignore: /node_modules\/(?!ProjectB)/
+});
+
+const Elevator = require('../elevator').default;
 
 describe('Elevator', function() {
   let elevator = new Elevator();
