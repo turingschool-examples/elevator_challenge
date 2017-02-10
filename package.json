@@ -1,0 +1,22 @@
+{
+  "name": "elevator-challenge",
+  "version": "1.0.0",
+  "description": "Make a JavaScript elevator",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests/elevator_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alex-Tideman/elevator_challenge.git"
+  },
+  "author": "Turing School",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-Tideman/elevator_challenge/issues"
+  },
+  "homepage": "https://github.com/Alex-Tideman/elevator_challenge"
+}
