@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "mocha --require babel-register tests/elevator_test.js"
+    "test": "mocha tests/elevator_test.js"
   },
   "repository": {
     "type": "git",
