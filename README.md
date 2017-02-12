@@ -23,7 +23,7 @@ person should be able to request a drop off floor to the elevator. The elevator 
 * Create a test suite that tests the following scenarios:
   * Person A goes up.
   * Person A goes down.
-  * Both tests should assert total number of stops and floors the elevator tailed.
+  * Both tests should assert total number of stops and floors the elevator traversed.
   * There should also be a unit test for every Elevator method.
 
 ### Level 3
@@ -38,7 +38,7 @@ person should be able to request a drop off floor to the elevator. The elevator 
   *  Person A goes up, Person B goes down.
   *  Person A goes down, Person B goes up.
   *  Person A goes down, Person B goes down.
-  * All four tests should assert total number of stops and floors the elevator tailed.
+  * All four tests should assert total number of stops and floors the elevator traversed.
   * All four tests should assert the total number of requests and current riders.
 
 ### Level 5
