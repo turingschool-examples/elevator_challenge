@@ -2,6 +2,7 @@ export default class Elevator {
   constructor() {
   }
 
-  get currentFloor() {
+  reset() {
+    this.constructor()
   }
 }
