@@ -1,7 +1,12 @@
 # Elevator Challenge
 
 ## Description
+For this challenge, you will be implementing Javascript code to represent an elevator picking up various people throughout a day. While it may seem trivial, you will quickly find out all the nuances of the elevator world and be marveled that they work as well as they do.
 
+We will focus heavily on TDDing and writing super clean code. This project is not graded but you will be presenting your work to a panel of expert elevator code engineers to judge you on your logic decisions and Javascript style. You cannot move on to the next Level unless you have completed the current Level (or made a valiant effort).
+
+### Level 0
+* Whiteboard out the elevator process. What kinds of things do you need to keep track of? What is a modern elevator's pickup and drop off strategy?
 
 ### Level 1
 * Build two Javascript classes - Elevator and Person. A
@@ -35,3 +40,22 @@ person should be able to request a drop off floor to the elevator. The elevator 
   *  Person A goes down, Person B goes down.
   * All four tests should assert total number of stops and floors the elevator tailed.
   * All four tests should assert the total number of requests and current riders.
+
+### Level 5
+* Create a git hook at the commit-msg hook to check that all commit messages include 'Level x', where x is the level number you working on.
+
+### Level 6
+* Have the elevator return to floor 0 (lobby) if there are no current riders in the elevator and the current time is before 12:00 p.m.
+* Have the elevator stay on current floor of last drop off if there are no current riders in the elevator and the current time is after 12:00 p.m.
+
+### Level 7
+* Create a more efficient algorithm for pickups and drop offs. Whatever algorithm you chose needs to be tested against the same four Level 4 situations and show for each situation the elevator traversed less total floors.
+
+### Level 8
+* If the elevator holds more than 4 riders at any given time, change the status of the elevator to 'broken'.
+
+### Level 9
+* Create a DOM representation of the elevator and people to visualize the elevator process.
+
+### Level 10
+* Replace all insertions and deletions of requests and current riders with API calls to a Node/Express backed with the correct CRUD methods.
