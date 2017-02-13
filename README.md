@@ -60,4 +60,4 @@ person should be able to request a drop off floor to the elevator. The elevator 
 * Create a DOM representation of the elevator and people to visualize the elevator process.
 
 ### Level 10
-* Replace all insertions and deletions of requests and current riders with API calls to a Node/Express backed with the correct CRUD methods.
+* Replace all insertions and deletions of requests and current riders with API calls to a Node/Express backend with the correct CRUD methods.
