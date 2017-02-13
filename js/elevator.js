@@ -9,6 +9,12 @@ export default class Elevator {
   }
 
   addRequest(person, destination) {
+    if(typeof destination !== 'number') {
+      throw new Error('ERROR: please enter a valid desination')
+    }
+
+    if(destination === person.currentFloor || destination < 0) return 
+
     this.requests.push({
                     name: person.name,
                     currentFloor: person.currentFloor,
@@ -22,7 +28,6 @@ export default class Elevator {
 
   moveToCurrentFloor() {
     const request = this.requests[0]
-    //edge case where currentfloor is less than currentfloor
     this.calcTraversedFloors(request.currentFloor)
     this.status = 'moving'
     this.currentFloor = request.currentFloor
