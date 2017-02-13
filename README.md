@@ -1,12 +1,18 @@
 # Elevator Challenge
 
 ## Description
-For this challenge, you will be implementing Javascript code to represent an elevator picking up various people throughout a day. While it may seem trivial, you will quickly find out all the nuances of the elevator world and be marveled that they work as well as they do.
+For this challenge, you will be implementing Javascript code to represent an elevator picking up various people throughout a day. While it may seem trivial, you will quickly find out all the nuances of the elevator world and be marveled that they work as well as they do. You cannot move on to the next Level unless you have completed the current Level (or made a valiant effort).
 
-We will focus heavily on TDDing and writing super clean code. This project is not graded but you will be presenting your work to a panel of expert elevator code engineers to judge you on your logic decisions and Javascript style. You cannot move on to the next Level unless you have completed the current Level (or made a valiant effort).
+We will focus heavily on TDDing and writing super clean code. This project is not graded but you will be presenting your work to a panel of expert elevator code engineers to judge you on your logic decisions and Javascript style.  The panel will declare a winner based on the following criteria:
+* Code Quality
+* Robustness of test suite
+* Efficiency of elevator algorithm
+* Number of Levels completed
+
+Fabulous prizes will be showered on said winner.
 
 ### Level 0
-* Whiteboard out the elevator process. What kinds of things do you need to keep track of? What is a modern elevator's pickup and drop off strategy?
+* Pencil and paper out the elevator process. What kinds of things do you need to keep track of? What is a modern elevator's pickup and drop off strategy?
 
 ### Level 1
 * Build two Javascript classes - Elevator and Person. A
