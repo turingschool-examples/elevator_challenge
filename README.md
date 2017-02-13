@@ -18,8 +18,8 @@ Fabulous prizes will be showered on said winner.
 * Build two Javascript classes - Elevator and Person. A
 person should be able to request a drop off floor to the elevator. The elevator should be able to pick up the person on their current floor and drop them off on the requested floor.
 * Elevator properties:
-  * When a class of Elevator is instantiated, it should start on floor 0 (lobby).
-  * It should be able to keep track of it's current floor.
+  * When a class of Elevator is instantiated, it should start on floor 0 (lobby). *
+  * It should be able to keep track of it's current floor. 
   * It should be able to keep track of how many total floors it has traversed and how many total stops it has made.
   * It should store a collection of requests and a collection of current riders on the elevator.
   * It has one of three statuses at any given moment: "idle", "moving", and "broken".
