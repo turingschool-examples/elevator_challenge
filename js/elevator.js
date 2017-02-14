@@ -14,32 +14,24 @@ export default class Elevator {
       throw new Error('ERROR: please enter a valid desination')
     }
 
-    if(destination === person.currentFloor || destination < 0) return
-
-    this.requests.push({
-                    name: person.name,
-                    currentFloor: person.currentFloor,
-                    destination })
-
     this.requestCount++
-    
-    if(this.requests.length) {
-      this.moveToCurrentFloor()
-    }
+    this.moveToCurrentFloor(person, destination)
   }
 
-  moveToCurrentFloor() {
-    const request = this.requests[0]
-    this.calcTraversedFloors(request.currentFloor)
+  moveToCurrentFloor(person, destination) {
     this.state = 'moving'
-    this.currentFloor = request.currentFloor
-    this.pickUp(request)
+    this.calcTraversedFloors(person.currentFloor)
+    this.currentFloor = person.currentFloor
+    this.increaseStops()
+    this.state = 'idle'
+    this.pickUp(person, destination)
   }
 
-  pickUp(request) {
-    this.stops++
+  pickUp(person, destination) {
+    if(destination === person.currentFloor || destination < 0) return
+    this.addRequestToQueue(person, destination)
+    const request = this.requests[0]
     this.riders.push(request)
-    this.state = 'idle'
     this.moveToDestination(request)
   }
 
@@ -53,8 +45,19 @@ export default class Elevator {
   dropOff(request) {
     this.riders.shift()
     this.requests.shift()
-    this.stops++
+    this.increaseStops()
     this.state = 'idle'
+  }
+
+  addRequestToQueue(person, destination) {
+    this.requests.push({
+      name: person.name,
+      currentFloor: person.currentFloor,
+      destination })
+  }
+
+  increaseStops() {
+    this.stops++
   }
 
   calcTraversedFloors(floorType) {

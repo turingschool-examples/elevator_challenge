@@ -66,13 +66,13 @@ describe('Elevator', function() {
 
     it('should not move floors if rider requests same floor', () => {
       elevator.addRequest(alexander, floor)
-      assert.equal(elevator.requests, 0)
-      assert.equal(elevator.stops, 0)
+      assert.equal(elevator.requestCount, 1)
+      assert.equal(elevator.stops, 1)
     })
 
     it('should not move floors if destination is less than lobby', () => {
       elevator.addRequest(alexander, -1)
-      assert.equal(elevator.currentFloor, 0)
+      assert.equal(elevator.currentFloor, floor)
     })
 
     xit('should throw an error if destination is not a number', () => {
@@ -140,9 +140,35 @@ describe('Elevator', function() {
       assert.equal(elevator.floors, 86)
     })
 
-    //test A staying on same floor and B moving
-    //test A moving and B the same
-    //test both staying same - edge case
+    it('should only drop off B, A requests same floor', () => {
+      elevator.addRequest(alexander, 4)
+      assert.equal(elevator.currentFloor, 4)
+      elevator.addRequest(dobby, 22)
+      assert.equal(elevator.currentFloor, 22)
+      assert.equal(elevator.requestCount, 2)
+      assert.equal(elevator.stops, 3)
+      assert.equal(elevator.floors, 24)
+    })
+
+    it('should only drop off A, B requests same floor', () => {
+      elevator.addRequest(alexander, 0)
+      assert.equal(elevator.currentFloor, 0)
+      elevator.addRequest(dobby, 3)
+      assert.equal(elevator.currentFloor, 3)
+      assert.equal(elevator.requestCount, 2)
+      assert.equal(elevator.stops, 3)
+      assert.equal(elevator.floors, 11)
+    })
+
+    it('should not pick up any riders, they request same destination as current floor', () => {
+      elevator.addRequest(alexander, 4)
+      assert.equal(elevator.currentFloor, 4)
+      elevator.addRequest(dobby, 3)
+      assert.equal(elevator.currentFloor, 3)
+      assert.equal(elevator.requestCount, 2)
+      assert.equal(elevator.stops, 2)
+      assert.equal(elevator.floors, 5)
+    })
 
     it('should have an idle state after dropping off last rider', () => {
       elevator.addRequest(blane, 21)
