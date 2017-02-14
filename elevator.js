@@ -1,20 +1,26 @@
 export default class Elevator {
-  constructor() {
+  constructor(currentFloor) {
     this.currentFloor = 0
-    this.state = 'idle'
-    this.stops = 0
-    this.floors = 0
+    this.status = 'idle' || 'moving' || 'broken'
+    this.totalStopsMade = 0
+    this.totalFloorsTransversed = 0
+    this.requests = []
     this.riders = []
   }
 
-  requestElevator(person, currentFloor, requestedFloor) {
+  requestElevator(person) {
     this.state = 'moving'
     this.currentFloor = person.currentFloor
     this.stops = this.stops + 1
     this.riders.push(person)
+    this.requestFloor(person)
   }
 
-  requestFloor(person, currentFloor, requestedFloor) {
+  requestFloor(person, requestedFloor) {
+    this.currentFloor = person.requestedFloor
+    this.state = 'idle'
+    this.stops = this.stops + 1
+    this.floors = person.requestedFloor
   }
 
   reset() {
