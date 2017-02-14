@@ -4,6 +4,7 @@ export default class Elevator {
     this.floors = 0
     this.stops = 0
     this.requests = []
+    this.requestCount = 0
     this.riders = []
     this.state = 'idle'
   }
@@ -13,15 +14,16 @@ export default class Elevator {
       throw new Error('ERROR: please enter a valid desination')
     }
 
-    if(destination === person.currentFloor || destination < 0) return 
+    if(destination === person.currentFloor || destination < 0) return
 
     this.requests.push({
                     name: person.name,
                     currentFloor: person.currentFloor,
                     destination })
 
-    //this conditional is temporary
-    if(this.requests.length === 1) {
+    this.requestCount++
+    
+    if(this.requests.length) {
       this.moveToCurrentFloor()
     }
   }
@@ -29,7 +31,7 @@ export default class Elevator {
   moveToCurrentFloor() {
     const request = this.requests[0]
     this.calcTraversedFloors(request.currentFloor)
-    this.status = 'moving'
+    this.state = 'moving'
     this.currentFloor = request.currentFloor
     this.pickUp(request)
   }
@@ -37,12 +39,12 @@ export default class Elevator {
   pickUp(request) {
     this.stops++
     this.riders.push(request)
-    this.status = 'idle'
+    this.state = 'idle'
     this.moveToDestination(request)
   }
 
   moveToDestination(request) {
-    this.status = 'moving'
+    this.state = 'moving'
     this.calcTraversedFloors(request.destination)
     this.currentFloor = request.destination
     this.dropOff(request)
@@ -50,8 +52,9 @@ export default class Elevator {
 
   dropOff(request) {
     this.riders.shift()
+    this.requests.shift()
     this.stops++
-    this.status = 'idle'
+    this.state = 'idle'
   }
 
   calcTraversedFloors(floorType) {
