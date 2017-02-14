@@ -53,8 +53,8 @@ person should be able to request a drop off floor to the elevator. The elevator 
 * Create a git hook at the commit-msg hook to check that all commit messages include 'Level x', where x is the level number you working on.
 
 ### Level 6
-* Have the elevator return to floor 0 (lobby) if there are no current riders in the elevator and the current time is before 12:00 p.m.
-* Have the elevator stay on current floor of last drop off if there are no current riders in the elevator and the current time is after 12:00 p.m.
+* Have the elevator return to floor 0 (lobby) if there are no current riders in the elevator OR pickup requests and the current time is before 12:00 p.m.
+* Have the elevator stay on current floor of last drop off if there are no current riders in the elevator OR pickup requests and the current time is after 12:00 p.m.
 
 ### Level 7
 * Create a more efficient algorithm for pickups and drop offs. Whatever algorithm you chose needs to be tested against the same four Level 4 situations and show for each situation the elevator traversed less total floors.
