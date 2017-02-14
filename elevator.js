@@ -9,27 +9,26 @@ export default class Elevator {
   }
 
   pickUpRider(person, requestedFloor) {
-    this.addTotalFloors(person.currentFloor)
+    var floor = person.currentFloor
+    this.addTotalFloors(floor)
     this.status = 'moving'
     this.addStop()
-    this.currentFloor = person.currentFloor
+    this.currentFloor = floor
     this.riders.push(person)
-    // this.currentFloor = person.currentFloor
-    // this.stops = this.stops + 1
-    // this.requestFloor(person, requestedFloor)
+    this.requestFloor(person, requestedFloor)
   }
 
   requestFloor(person, requestedFloor) {
+    this.requests.push({
+      name: person.name,
+      currentFloor: person.currentFloor,
+      requestedFloor,
+    })
+    var floor = this.requests[0].requestedFloor
+    this.addTotalFloors(floor)
     this.state = 'moving'
-    this.currentFloor = person.currentFloor
-    this.status = 'idle'
-    this.totalStopsMade = this.totalStopsMade + 1
-    this.riders.push(person)
-    this.state = 'moving'
-    this.currentFloor = person.requestedFloor
-    this.totalStopsMade = this.totalStopsMade + 1
-
-    // this.floors = person.requestedFloor
+    this.addStop()
+    this.currentFloor = floor
   }
 
   addStop() {
@@ -37,8 +36,8 @@ export default class Elevator {
     this.totalStopsMade = this.totalStopsMade + 1
   }
 
-  addTotalFloors(currentFloor) {
-    this.totalFloors = this.totalFloors + Math.abs(this.currentFloor - currentFloor)
+  addTotalFloors(floor) {
+    this.totalFloors += Math.abs(this.currentFloor - floor)
   }
 
   reset() {

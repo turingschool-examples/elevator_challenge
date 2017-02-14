@@ -25,32 +25,24 @@ describe('Elevator', function() {
   describe ('Level 2', () => {
     const person = new Person("Hilary", 2)
 
-    it('should pick a rider up', () => {
-      elevator.pickUpRider(person)
-      assert.equal(elevator.totalFloors, 2)
-      assert.equal(elevator.totalStopsMade, 1)
-      assert.equal(elevator.currentFloor, 2)
+    it('should bring a rider to a floor above their current floor', () => {
+      elevator.pickUpRider(person, 5)
       assert.deepEqual(elevator.riders, [person])
-    })
-
-    xit('should bring a rider to a floor above their current floor', () => {
-      elevator.requestFloor(person, 5)
-      assert.equal(elevator.currentFloor, 5)
-      assert.equal(elevator.status, 'idle')
+      assert.equal(elevator.totalFloors, 5)
       assert.equal(elevator.totalStopsMade, 2)
-      assert.equal(elevator.floorsToTransverse, 5)
+      assert.equal(elevator.status, 'idle')
+      assert.equal(elevator.currentFloor, 5)
     });
 
+    it('should bring a rider to a floor below their current floor', () => {
+      elevator.pickUpRider(person, 0)
+      assert.deepEqual(elevator.riders, [person])
+      assert.equal(elevator.totalFloors, 4)
+      assert.equal(elevator.totalStopsMade, 2)
+      assert.equal(elevator.status, 'idle')
+      assert.equal(elevator.currentFloor, 0)
+    });
   })
-
-  xit('should bring a rider to a floor below their current floor', () => {
-    elevator.requestFloor(person, 1)
-    assert.equal(elevator.currentFloor, 1)
-    assert.equal(elevator.status, 'idle')
-    assert.equal(elevator.totalStopsMade, 2)
-    assert.equal(elevator.totalFloorsTransversed, 1)
-  });
-
 });
 
 describe('Person', function() {
