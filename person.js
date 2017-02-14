@@ -1,7 +1,7 @@
 export default class Person {
-  constructor(name, currentFloor, requestedFloor) {
+  constructor(name, currentFloor) {
     this.name = name
     this.currentFloor = currentFloor
-    this.requestedFloor = requestedFloor
+    this.requestedFloor = null
   }
 }

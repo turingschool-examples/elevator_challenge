@@ -21,11 +21,11 @@ person should be able to request a drop off floor to the elevator. The elevator 
   * When a class of Elevator is instantiated, it should start on floor 0 (lobby). *
   * It should be able to keep track of it's current floor. *
   * It should be able to keep track of how many total floors it has traversed and how many total stops it has made. *
-  * It should store a collection of requests and a collection of current riders on the elevator.
+  * It should store a collection of requests and a collection of current riders on the elevator. *
   * It has one of three statuses at any given moment: "idle", "moving", and "broken". *
 * Person properties:
   * Name *
-  * Current floor
+  * Current floor *
 
 ### Level 2
 * Create a test suite that tests the following scenarios:
