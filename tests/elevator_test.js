@@ -14,7 +14,7 @@ describe('Elevator', function() {
     elevator.reset();
   });
 
-  xit('should bring a rider to a floor above their current floor', () => {
+  it('should bring a rider to a floor above their current floor', () => {
     // Alex requests the elevator to take him from 2 to 5
     elevator.requestFloor(alex, 5)
 
@@ -28,7 +28,19 @@ describe('Elevator', function() {
     assert.equal(elevator.floors, 5)
   });
 
-  xit('should bring a rider to a floor below their current floor', () => {
+  it('should bring a rider to a floor below their current floor', () => {
+    // Alex requests the elevator to take him from 2 to 5
+    elevator.requestFloor(alex, 1)
+
+    // Assert the current floor of the elevator is the drop off floor
+    assert.equal(elevator.currentFloor, 1)
+    // Assert the current status of the elevator is idle after drop off
+    assert.equal(elevator.state, 'idle')
+    // Assert the total number of stops is 2 after drop off
+    assert.equal(elevator.stops, 2)
+    // Assert the total number of floors traversed
+    assert.equal(elevator.floors, 3)
+
   });
 
 });
