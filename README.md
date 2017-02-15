@@ -29,10 +29,10 @@ person should be able to request a drop off floor to the elevator. The elevator 
 
 ### Level 2
 * Create a test suite that tests the following scenarios:
-  * Person A goes up.
-  * Person A goes down.
-  * Both tests should assert total number of stops and floors the elevator traversed.
-  * There should also be a unit test for every Elevator method.
+  * Person A goes up. *
+  * Person A goes down. *
+  * Both tests should assert total number of stops and floors the elevator traversed. *
+  * There should also be a unit test for every Elevator method. *
 
 ### Level 3
 * Create the ability for multiple people to request drop off floors. The elevator should pick up and drop off each person in order of the requests. For example:

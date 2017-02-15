@@ -1,6 +1,6 @@
 require('babel-core/register')({
   ignore: /node_modules\/(?!ProjectB)/
-});
+})
 
 const assert = require('chai').assert
 const Elevator = require('../elevator').default
@@ -10,8 +10,8 @@ describe('Elevator', function() {
   const elevator = new Elevator()
 
   afterEach(function() {
-    elevator.reset();
-  });
+    elevator.reset()
+  })
 
   it('should start on idle on floor 0 with no requests made from any riders', () => {
     assert.equal(elevator.currentFloor, 0)
@@ -32,7 +32,7 @@ describe('Elevator', function() {
       assert.equal(elevator.totalStopsMade, 2)
       assert.equal(elevator.status, 'idle')
       assert.equal(elevator.currentFloor, 5)
-    });
+    })
 
     it('should bring a rider to a floor below their current floor', () => {
       elevator.pickUpRider(person, 0)
@@ -41,9 +41,9 @@ describe('Elevator', function() {
       assert.equal(elevator.totalStopsMade, 2)
       assert.equal(elevator.status, 'idle')
       assert.equal(elevator.currentFloor, 0)
-    });
+    })
   })
-});
+})
 
 describe('Person', function() {
   const person = new Person("Hilary", 2)
