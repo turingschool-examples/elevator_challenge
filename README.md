@@ -18,21 +18,21 @@ Fabulous prizes will be showered on said winner.
 * Build two Javascript classes - Elevator and Person. A
 person should be able to request a drop off floor to the elevator. The elevator should be able to pick up the person on their current floor and drop them off on the requested floor.
 * Elevator properties:
-  * When a class of Elevator is instantiated, it should start on floor 0 (lobby).
-  * It should be able to keep track of it's current floor.
-  * It should be able to keep track of how many total floors it has traversed and how many total stops it has made.
-  * It should store a collection of requests and a collection of current riders on the elevator.
-  * It has one of three statuses at any given moment: "idle", "moving", and "broken".
+  * When a class of Elevator is instantiated, it should start on floor 0 (lobby). *
+  * It should be able to keep track of it's current floor. *
+  * It should be able to keep track of how many total floors it has traversed and how many total stops it has made. *
+  * It should store a collection of requests and a collection of current riders on the elevator. *
+  * It has one of three statuses at any given moment: "idle", "moving", and "broken". *
 * Person properties:
-  * Name
-  * Current floor
+  * Name *
+  * Current floor *
 
 ### Level 2
 * Create a test suite that tests the following scenarios:
-  * Person A goes up.
-  * Person A goes down.
-  * Both tests should assert total number of stops and floors the elevator traversed.
-  * There should also be a unit test for every Elevator method.
+  * Person A goes up. *
+  * Person A goes down. *
+  * Both tests should assert total number of stops and floors the elevator traversed. *
+  * There should also be a unit test for every Elevator method. *
 
 ### Level 3
 * Create the ability for multiple people to request drop off floors. The elevator should pick up and drop off each person in order of the requests. For example:
