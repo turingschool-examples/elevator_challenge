@@ -21,19 +21,22 @@ export default class Elevator {
   }
 
   activateElevator(rider) {
-    console.log('rider', rider.currentFloor);
-    this.floors = Math.abs(rider.currentFloor)
     this.state = 'moving'
+    // this.floors = this.floors + Math.abs(rider.currentFloor)
     this.pickup(rider)
+    this.dropoff(rider)
+    this.requests.shift()
+    this.riders.shift()
+    this.requests.length > 0 && this.activateElevator
   }
 
   pickup(rider){
-    this.floors = this.floors + Math.abs(this.floors - this.requests[0][rider.name])
+    this.floors += Math.abs(rider.currentFloor - this.currentFloor)
     this.stops += 1
-    this.dropoff(rider)
   }
 
   dropoff(rider){
+    this.floors += Math.abs(rider.currentFloor - this.requests[0][rider.name])
     this.stops += 1
     this.state = 'idle'
     this.currentFloor = this.requests[0][rider.name]
