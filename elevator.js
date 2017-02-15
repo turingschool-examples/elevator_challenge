@@ -1,6 +1,6 @@
 export default class Elevator {
   constructor() {
-    this.state = 'idle'; //moving or broken
+    this.state = 'idle';
     this.currentFloor = 0;
     this.riders = [];
     this.requests = [];
@@ -22,7 +22,6 @@ export default class Elevator {
 
   activateElevator(rider) {
     this.state = 'moving'
-    // this.floors = this.floors + Math.abs(rider.currentFloor)
     this.pickup(rider)
     this.dropoff(rider)
     this.requests.shift()
@@ -36,9 +35,9 @@ export default class Elevator {
   }
 
   dropoff(rider){
+    this.state = 'idle'
     this.floors += Math.abs(rider.currentFloor - this.requests[0][rider.name])
     this.stops += 1
-    this.state = 'idle'
     this.currentFloor = this.requests[0][rider.name]
   }
 }
